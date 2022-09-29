@@ -102,7 +102,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -120,42 +120,37 @@
                                   <Component id="txtEmployeeID" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtAge" alignment="0" max="32767" attributes="0"/>
                               </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="label6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="txtTeamInfo" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtPositionTitle" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtCellphoneNo" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtEmailID" alignment="0" pref="93" max="32767" attributes="0"/>
-                                      <Component id="txtLevel" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="label6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="label7" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="label8" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="label9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="label10" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="label11" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="txtTeamInfo" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtPositionTitle" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtCellphoneNo" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtEmailID" alignment="0" pref="93" max="32767" attributes="0"/>
+                              <Component id="txtLevel" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnCreate" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="btnCreate" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="143" max="32767" attributes="0"/>
+                  <EmptySpace pref="120" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -185,9 +180,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="label4" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
