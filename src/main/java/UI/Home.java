@@ -290,7 +290,7 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Delete createPanel = new Delete();
-        deletePane.setRightComponent(createPanel);                               // TODO add your handling code here:
+        homePane.setRightComponent(createPanel);                               // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
