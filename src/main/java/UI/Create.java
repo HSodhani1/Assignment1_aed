@@ -18,7 +18,8 @@ public class Create extends javax.swing.JPanel {
     public Create() {
         initComponents();
     }
-
+    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,6 +41,10 @@ public class Create extends javax.swing.JPanel {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
+        popupMenu1 = new java.awt.PopupMenu();
+        popupMenu2 = new java.awt.PopupMenu();
+        popupMenu3 = new java.awt.PopupMenu();
         createPane = new javax.swing.JPanel();
         txtStartDate = new com.toedter.calendar.JDateChooser();
         txtAge = new javax.swing.JTextField();
@@ -83,6 +88,12 @@ public class Create extends javax.swing.JPanel {
 
         jMenu6.setText("Edit");
         jMenuBar3.add(jMenu6);
+
+        popupMenu1.setLabel("popupMenu1");
+
+        popupMenu2.setLabel("popupMenu2");
+
+        popupMenu3.setLabel("popupMenu3");
 
         label8.setText("Cellphone No.");
 
@@ -162,10 +173,9 @@ public class Create extends javax.swing.JPanel {
                             .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(36, 36, 36)
                         .addGroup(createPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(createPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                                .addComponent(txtEmployeeID, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtAge, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(txtName)
+                            .addComponent(txtEmployeeID)
+                            .addComponent(txtAge)
                             .addGroup(createPaneLayout.createSequentialGroup()
                                 .addComponent(jRadioButton1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -265,7 +275,7 @@ public class Create extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(createPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,7 +307,16 @@ public class Create extends javax.swing.JPanel {
     }//GEN-LAST:event_txtEmployeeIDActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
-
+            if (txtName.getText().equals("")|| txtEmployeeID.getText().equals("")|| txtAge.getText().equals("")|| txtCellphoneNo.getText().equals("")|| txtEmailID.getText().equals("")|| txtLevel.getText().equals("")|| txtPositionTitle.getText().equals("")|| txtTeamInfo.getText().equals("")){
+                JOptionPane.showMessageDialog(this,"Incomplete Information!");
+            
+            } else {
+                String data[] = {txtName.getText(),txtEmployeeID.getText(),txtAge.getText(),txtCellphoneNo.getText(),txtEmailID.getText(),txtLevel.getText(),txtPositionTitle.getText(),txtTeamInfo.getText()};
+                
+                
+               
+            }   
+            
 // TODO add your handling code here:
     }//GEN-LAST:event_btnCreateActionPerformed
 
@@ -307,6 +326,7 @@ public class Create extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JPanel createPane;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -331,6 +351,9 @@ public class Create extends javax.swing.JPanel {
     private java.awt.Label label7;
     private java.awt.Label label8;
     private java.awt.Label label9;
+    private java.awt.PopupMenu popupMenu1;
+    private java.awt.PopupMenu popupMenu2;
+    private java.awt.PopupMenu popupMenu3;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtCellphoneNo;
     private javax.swing.JTextField txtEmailID;

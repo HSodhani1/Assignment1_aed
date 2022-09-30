@@ -28,24 +28,36 @@ public class Delete extends javax.swing.JPanel {
 
         deletePane = new javax.swing.JPanel();
         label1 = new java.awt.Label();
+        deleteID = new javax.swing.JTextField();
+        btnDelete = new javax.swing.JButton();
 
-        label1.setText("delete");
+        label1.setText("Employee ID");
+
+        btnDelete.setText("Delete");
 
         javax.swing.GroupLayout deletePaneLayout = new javax.swing.GroupLayout(deletePane);
         deletePane.setLayout(deletePaneLayout);
         deletePaneLayout.setHorizontalGroup(
             deletePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deletePaneLayout.createSequentialGroup()
-                .addContainerGap(262, Short.MAX_VALUE)
+            .addGroup(deletePaneLayout.createSequentialGroup()
+                .addGap(118, 118, 118)
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(248, 248, 248))
+                .addGap(34, 34, 34)
+                .addGroup(deletePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnDelete)
+                    .addComponent(deleteID, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
         deletePaneLayout.setVerticalGroup(
             deletePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(deletePaneLayout.createSequentialGroup()
-                .addGap(145, 145, 145)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addGap(100, 100, 100)
+                .addGroup(deletePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(deleteID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnDelete)
+                .addContainerGap(208, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -62,6 +74,8 @@ public class Delete extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JTextField deleteID;
     private javax.swing.JPanel deletePane;
     private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables

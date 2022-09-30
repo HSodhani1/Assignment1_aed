@@ -27,17 +27,40 @@ public class Modify extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         modifyPane = new javax.swing.JPanel();
+        modify = new java.awt.Label();
+        modifyID = new javax.swing.JTextField();
+        btnModify = new javax.swing.JButton();
+
+        modify.setText("Employee ID");
+
+        btnModify.setText("Modify");
 
         javax.swing.GroupLayout modifyPaneLayout = new javax.swing.GroupLayout(modifyPane);
         modifyPane.setLayout(modifyPaneLayout);
         modifyPaneLayout.setHorizontalGroup(
             modifyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 618, Short.MAX_VALUE)
+            .addGroup(modifyPaneLayout.createSequentialGroup()
+                .addGap(143, 143, 143)
+                .addComponent(modify, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addGroup(modifyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnModify)
+                    .addComponent(modifyID, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(234, Short.MAX_VALUE))
         );
         modifyPaneLayout.setVerticalGroup(
             modifyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 369, Short.MAX_VALUE)
+            .addGroup(modifyPaneLayout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addGroup(modifyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(modifyID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(modify, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnModify)
+                .addContainerGap(205, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -56,7 +79,12 @@ public class Modify extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnModify;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private java.awt.Label modify;
+    private javax.swing.JTextField modifyID;
     private javax.swing.JPanel modifyPane;
     // End of variables declaration//GEN-END:variables
 }
