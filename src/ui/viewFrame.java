@@ -349,12 +349,12 @@ public class viewFrame extends javax.swing.JPanel {
         selectedEmployees.setIdnumber(EmployeeID);
         selectedEmployees.setGender(gender);
         selectedEmployees.setAge(Age);
-        selectedEmployees.(StartDate);
+        selectedEmployees.setCurrentDate(StartDate);
         selectedEmployees.setLevel(Level);
         selectedEmployees.setTeamInfo(TeamInfo);
-        selectedEmployees.setPosition(PositionTitle);
+        selectedEmployees.setPostion(PositionTitle);
         selectedEmployees.setMobileno(CellNumber);
-        selectedEmployees.setEmailAddress(Email);
+        selectedEmployees.setEmail(Email);
         
         JOptionPane.showMessageDialog(this, "Employee Profile updated.");
        

@@ -233,7 +233,7 @@ public class createPanel extends javax.swing.JPanel {
         String teamInfo= txtTeaminfo1.getText();
         String postion= txtPosition.getText();
         String email= txtEmail.getText();
-        int mobileno = Integer.parseInt(txtMobile.getText());
+        String mobileno = txtMobile.getText();
         String Gender = txtGender.getText();
         SimpleDateFormat d = new SimpleDateFormat("MM-dd-yyyy");
         String Startdate = txtStartDate.getText();

@@ -17,7 +17,7 @@ public class employeeData {
     private String teamInfo;
     private String postion;
     private String email;
-    private int mobileno;
+    private String mobileno;
     private String currentDate;
 
     public String getCurrentDate() {
@@ -92,11 +92,11 @@ public class employeeData {
         this.email = email;
     }
 
-    public int getMobileno() {
+    public String getMobileno() {
         return mobileno;
     }
 
-    public void setMobileno(int mobileno) {
+    public void setMobileno(String mobileno) {
         this.mobileno = mobileno;
     }
     
