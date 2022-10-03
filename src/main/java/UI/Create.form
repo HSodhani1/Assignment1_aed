@@ -123,38 +123,34 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="label2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="label3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="label4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="label5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="Name" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="EmployeeID" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="Age" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="Gender" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="StartDate" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <EmptySpace min="36" pref="36" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="txtName" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtEmployeeID" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtAge" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="txtStartDate" max="32767" attributes="0"/>
-                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="txtGender" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtStartDate" pref="93" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="label6" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="label7" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="label8" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="label9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="TeamInfo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="PositionTitle" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="CellphoneNo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="EmailID" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="label10" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="label11" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="Level" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -163,6 +159,7 @@
                               <Component id="txtCellphoneNo" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtEmailID" alignment="0" pref="93" max="32767" attributes="0"/>
                               <Component id="txtLevel" max="32767" attributes="0"/>
+                              <Component id="button1" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnCreate" min="-2" max="-2" attributes="0"/>
@@ -181,50 +178,38 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="label1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Name" alignment="1" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtName" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="label2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="EmployeeID" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="txtEmployeeID" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="label3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Age" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="txtAge" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="label4" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="label5" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtStartDate" alignment="1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <Component id="Gender" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Component id="StartDate" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
                           <Component id="btnCreate" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="txtGender" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                          <Component id="txtStartDate" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="label11" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="txtLevel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="Level" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtLevel" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -232,26 +217,34 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="label6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="TeamInfo" alignment="1" min="-2" max="-2" attributes="0"/>
                                                       <Component id="txtTeamInfo" alignment="1" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="label7" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="PositionTitle" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Component id="txtPositionTitle" alignment="1" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="label8" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CellphoneNo" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="txtCellphoneNo" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="label9" min="-2" max="-2" attributes="0"/>
+                                  <Component id="EmailID" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="txtEmailID" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="label10" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="label10" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                  <Component id="button1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace pref="47" max="32767" attributes="0"/>
@@ -260,47 +253,29 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="com.toedter.calendar.JDateChooser" name="txtStartDate">
-        </Component>
         <Component class="javax.swing.JTextField" name="txtAge">
         </Component>
-        <Component class="java.awt.Label" name="label8">
+        <Component class="java.awt.Label" name="CellphoneNo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cellphone No."/>
           </Properties>
         </Component>
-        <Component class="java.awt.Label" name="label3">
+        <Component class="java.awt.Label" name="Age">
           <Properties>
             <Property name="text" type="java.lang.String" value="Age"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Male"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JTextField" name="txtTeamInfo">
         </Component>
-        <Component class="java.awt.Label" name="label9">
+        <Component class="java.awt.Label" name="EmailID">
           <Properties>
             <Property name="text" type="java.lang.String" value="Email ID"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Label" name="label4">
+        <Component class="java.awt.Label" name="Gender">
           <Properties>
             <Property name="text" type="java.lang.String" value="Gender"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Female"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton2ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtPositionTitle">
         </Component>
@@ -309,18 +284,10 @@
             <Property name="text" type="java.lang.String" value="Photo"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Label" name="label5">
+        <Component class="java.awt.Label" name="StartDate">
           <Properties>
             <Property name="text" type="java.lang.String" value="Start Date"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Others"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton3ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCellphoneNo">
           <Events>
@@ -328,13 +295,16 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtName">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNameActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="java.awt.Label" name="label6">
+        <Component class="java.awt.Label" name="TeamInfo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Team Info"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Label" name="label1">
+        <Component class="java.awt.Label" name="Name">
           <Properties>
             <Property name="text" type="java.lang.String" value="Name"/>
           </Properties>
@@ -346,12 +316,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmployeeIDActionPerformed"/>
           </Events>
         </Component>
-        <Component class="java.awt.Label" name="label7">
+        <Component class="java.awt.Label" name="PositionTitle">
           <Properties>
             <Property name="text" type="java.lang.String" value="Position Title"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Label" name="label2">
+        <Component class="java.awt.Label" name="EmployeeID">
           <Properties>
             <Property name="text" type="java.lang.String" value="Employee ID"/>
           </Properties>
@@ -364,12 +334,54 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateActionPerformed"/>
           </Events>
         </Component>
-        <Component class="java.awt.Label" name="label11">
+        <Component class="java.awt.Label" name="Level">
           <Properties>
             <Property name="text" type="java.lang.String" value="Level"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtLevel">
+        <Component class="javax.swing.JTextField" name="txtStartDate">
+        </Component>
+        <Component class="javax.swing.JComboBox" name="txtGender">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="2">
+                <StringItem index="0" value="Male"/>
+                <StringItem index="1" value="Female"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtGenderActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="txtLevel">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Level 1"/>
+                <StringItem index="1" value="Level 2"/>
+                <StringItem index="2" value="Level 3"/>
+                <StringItem index="3" value="Level 4"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLevelActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="java.awt.Button" name="button1">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Upload Photo"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

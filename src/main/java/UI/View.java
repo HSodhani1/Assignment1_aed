@@ -4,6 +4,10 @@
  */
 package UI;
 
+import Employee.Employee;
+import Employee.EmployeeInfo;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author hardiksodhani
@@ -13,8 +17,13 @@ public class View extends javax.swing.JPanel {
     /**
      * Creates new form View
      */
-    public View() {
+    EmployeeInfo history;
+  
+    public View(EmployeeInfo history) {
         initComponents();
+        this.history=history;
+        //populateTable();
+       
     }
 
     /**
@@ -28,10 +37,16 @@ public class View extends javax.swing.JPanel {
 
         viewPane = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablePane = new javax.swing.JTable();
+        employeeTable = new javax.swing.JTable();
 
-        tablePane.setModel(new javax.swing.table.DefaultTableModel(
+        employeeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null},
@@ -41,7 +56,7 @@ public class View extends javax.swing.JPanel {
                 "Name", "Employee ID", "Age", "Gender", "Start Date", "Level", "Team Info", "Position Title", "Cellphone No.", "Email ID", "Photo"
             }
         ));
-        jScrollPane1.setViewportView(tablePane);
+        jScrollPane1.setViewportView(employeeTable);
 
         javax.swing.GroupLayout viewPaneLayout = new javax.swing.GroupLayout(viewPane);
         viewPane.setLayout(viewPaneLayout);
@@ -73,8 +88,29 @@ public class View extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JTable employeeTable;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable tablePane;
     private javax.swing.JPanel viewPane;
     // End of variables declaration//GEN-END:variables
-}
+
+
+
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) employeeTable.getModel();
+        model.setRowCount(0);
+        
+        for(Employee ed: history.getHistory()){
+           Object[] row = new Object[10];
+           row[0] = ed;
+           row[1] = ed.getEmployeeID();
+           row[2]= ed.getAge();
+           row[3] = ed.getGender();
+           row[4] = ed.getLevel();
+           row[5] = ed.getTeamInfo();
+           row[6] = ed.getPositionTitle();
+           row[7] = ed.getCellNumber();
+           row[8] = ed.getEmail();
+           row[9] = ed.getStartDate();
+           model.addRow(row);
+}}}
+
