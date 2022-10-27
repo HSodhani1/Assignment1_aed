@@ -4,8 +4,6 @@
  */
 package ui;
 
-import model.empData;
-
 /**
  *
  * @author hardiksodhani
@@ -15,10 +13,8 @@ public class mainFrame extends javax.swing.JFrame {
     /**
      * Creates new form mainFrame
      */
-    empData history;
     public mainFrame() {
         initComponents();
-        history=new empData();  
     }
 
     /**
@@ -30,88 +26,103 @@ public class mainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        SplitPane = new javax.swing.JSplitPane();
-        jPanel1 = new javax.swing.JPanel();
-        btnCreate = new javax.swing.JButton();
-        btnView = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        adminLbl = new javax.swing.JButton();
+        doctorLbl = new javax.swing.JButton();
+        patientLbl = new javax.swing.JButton();
+        communityLbl = new javax.swing.JButton();
+        hospitalLbl = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnCreate.setText("Create");
-        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/hardiksodhani/Desktop/pngegg.png")); // NOI18N
+
+        adminLbl.setBackground(new java.awt.Color(255, 255, 204));
+        adminLbl.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        adminLbl.setText("Admin");
+        adminLbl.setOpaque(true);
+
+        doctorLbl.setBackground(new java.awt.Color(204, 255, 204));
+        doctorLbl.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        doctorLbl.setText("Doctor");
+        doctorLbl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateActionPerformed(evt);
+                doctorLblActionPerformed(evt);
             }
         });
 
-        btnView.setText("View");
-        btnView.addActionListener(new java.awt.event.ActionListener() {
+        patientLbl.setBackground(new java.awt.Color(255, 204, 204));
+        patientLbl.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        patientLbl.setText("Patient");
+        patientLbl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewActionPerformed(evt);
+                patientLblActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(469, Short.MAX_VALUE))
-        );
+        communityLbl.setBackground(new java.awt.Color(255, 204, 255));
+        communityLbl.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        communityLbl.setText("Community");
 
-        SplitPane.setLeftComponent(jPanel1);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 455, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
-
-        SplitPane.setRightComponent(jPanel2);
+        hospitalLbl.setBackground(new java.awt.Color(204, 204, 255));
+        hospitalLbl.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        hospitalLbl.setText("Hospital");
+        hospitalLbl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hospitalLblActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(377, 377, 377)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(adminLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(doctorLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(patientLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62)
+                        .addComponent(communityLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(hospitalLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(patientLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(communityLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(hospitalLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adminLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(doctorLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+    private void hospitalLblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitalLblActionPerformed
         // TODO add your handling code here:
-        createPanel create = new createPanel(history);
-        SplitPane.setRightComponent(create);
-        
-    }//GEN-LAST:event_btnCreateActionPerformed
+    }//GEN-LAST:event_hospitalLblActionPerformed
 
-    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+    private void doctorLblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorLblActionPerformed
         // TODO add your handling code here:
-       viewFrame view = new viewFrame(history);
-        SplitPane.setRightComponent(view);
-    }//GEN-LAST:event_btnViewActionPerformed
+    }//GEN-LAST:event_doctorLblActionPerformed
+
+    private void patientLblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientLblActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_patientLblActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,10 +160,11 @@ public class mainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSplitPane SplitPane;
-    private javax.swing.JButton btnCreate;
-    private javax.swing.JButton btnView;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton adminLbl;
+    private javax.swing.JButton communityLbl;
+    private javax.swing.JButton doctorLbl;
+    private javax.swing.JButton hospitalLbl;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton patientLbl;
     // End of variables declaration//GEN-END:variables
 }
