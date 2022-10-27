@@ -37,6 +37,7 @@ public class doctor extends javax.swing.JPanel {
         txtDoctorDepartment = new javax.swing.JTextField();
         txtDoctorUsername = new javax.swing.JTextField();
         txtDoctorPassword = new javax.swing.JTextField();
+        btnCreateDoctor = new javax.swing.JButton();
 
         label1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         label1.setText("Create Doctor Record");
@@ -53,6 +54,8 @@ public class doctor extends javax.swing.JPanel {
 
         txtDoctorPassword.setActionCommand("<Not Set>");
 
+        btnCreateDoctor.setText("Create");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -68,6 +71,7 @@ public class doctor extends javax.swing.JPanel {
                         .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCreateDoctor)
                     .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(txtDoctorPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
@@ -106,12 +110,15 @@ public class doctor extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDoctorPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(btnCreateDoctor)
+                .addContainerGap(156, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCreateDoctor;
     private java.awt.Label label1;
     private java.awt.Label lblDepartment;
     private java.awt.Label lblDoctorId;

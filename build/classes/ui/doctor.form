@@ -16,7 +16,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="lblDoctorName" min="-2" max="-2" attributes="0"/>
@@ -29,6 +29,7 @@
               </Group>
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnCreateDoctor" min="-2" max="-2" attributes="0"/>
                   <Component id="label1" min="-2" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                       <Component id="txtDoctorPassword" alignment="0" pref="212" max="32767" attributes="0"/>
@@ -80,7 +81,9 @@
                   <Component id="lblPassword" min="-2" max="-2" attributes="0"/>
                   <Component id="txtDoctorPassword" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="217" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <Component id="btnCreateDoctor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="156" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -130,6 +133,11 @@
     <Component class="javax.swing.JTextField" name="txtDoctorPassword">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="&lt;Not Set&gt;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnCreateDoctor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Create"/>
       </Properties>
     </Component>
   </SubComponents>
