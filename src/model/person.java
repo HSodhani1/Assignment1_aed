@@ -14,7 +14,16 @@ public class person {
     private String personName;
     private int age;
     private Patient patient;
+
+    public int getHeight() {
+        return Height;
+    }
+
+    public void setHeight(int Height) {
+        this.Height = Height;
+    }
     private int weight;
+    private int Height;
     private String community;
     private String address;
     private String city;
