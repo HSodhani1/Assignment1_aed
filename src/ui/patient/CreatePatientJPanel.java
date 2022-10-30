@@ -57,10 +57,14 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         prefferedPharmacyJLabel = new javax.swing.JLabel();
         patientIDJTextField = new javax.swing.JTextField();
         backJButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 255, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(500, 700));
         setPreferredSize(new java.awt.Dimension(500, 700));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(primaryDocNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 75, 150, -1));
+        add(prefferedPharmacyJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 110, 150, -1));
 
         addPatientJButton.setText("Add Patient");
         addPatientJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -68,16 +72,22 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
                 addPatientJButtonActionPerformed(evt);
             }
         });
+        add(addPatientJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(271, 151, 100, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Patient Details");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 462, -1));
 
         patientIDJLabel.setText("Patient ID");
+        add(patientIDJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 43, -1, -1));
 
         primaryDocNameJLabel.setText("Primary Doctor Name");
+        add(primaryDocNameJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 78, -1, -1));
 
         prefferedPharmacyJLabel.setText("Preffered Pharmacy");
+        add(prefferedPharmacyJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 113, -1, -1));
+        add(patientIDJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 40, 150, -1));
 
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -85,59 +95,11 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 151, 100, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(patientIDJLabel)
-                            .addGap(256, 256, 256)
-                            .addComponent(patientIDJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(primaryDocNameJLabel)
-                            .addComponent(prefferedPharmacyJLabel))
-                        .addGap(189, 189, 189)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(prefferedPharmacyJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(primaryDocNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(27, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(backJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(addPatientJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(127, 127, 127))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(patientIDJLabel)
-                    .addComponent(patientIDJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(primaryDocNameJLabel)
-                    .addComponent(primaryDocNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(prefferedPharmacyJLabel)
-                    .addComponent(prefferedPharmacyJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addPatientJButton)
-                    .addComponent(backJButton))
-                .addContainerGap(491, Short.MAX_VALUE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon("/Users/hardiksodhani/Desktop/v870-tang-36.jpg")); // NOI18N
+        jLabel3.setText("jLabel3");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addPatientJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPatientJButtonActionPerformed
@@ -190,6 +152,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
     private javax.swing.JButton addPatientJButton;
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel patientIDJLabel;
     private javax.swing.JTextField patientIDJTextField;
     private javax.swing.JLabel prefferedPharmacyJLabel;

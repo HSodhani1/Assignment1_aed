@@ -8,6 +8,7 @@ package ui.patient;
 import model.PersonDirectory;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import ui.MainJFrame;
 
 /**
  *
@@ -40,11 +41,12 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
 
         managePatientsJButton = new javax.swing.JButton();
         manageVitalSignsJButton = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 255, 255));
         setMinimumSize(new java.awt.Dimension(500, 700));
         setPreferredSize(new java.awt.Dimension(500, 700));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         managePatientsJButton.setText("Patients Directory");
         managePatientsJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -52,6 +54,7 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                 managePatientsJButtonActionPerformed(evt);
             }
         });
+        add(managePatientsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 127, -1, -1));
 
         manageVitalSignsJButton.setText("Encounter History");
         manageVitalSignsJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -59,37 +62,11 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                 manageVitalSignsJButtonActionPerformed(evt);
             }
         });
+        add(manageVitalSignsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 168, -1, -1));
 
-        btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(managePatientsJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(manageVitalSignsJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(178, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(managePatientsJButton)
-                .addGap(18, 18, 18)
-                .addComponent(manageVitalSignsJButton)
-                .addGap(18, 18, 18)
-                .addComponent(btnLogout)
-                .addContainerGap(450, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/hardiksodhani/Desktop/v870-tang-36.jpg")); // NOI18N
+        jLabel2.setPreferredSize(new java.awt.Dimension(300, 300));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -780, 2380, 2530));
     }// </editor-fold>//GEN-END:initComponents
 
     private void managePatientsJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managePatientsJButtonActionPerformed
@@ -110,16 +87,9 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageVitalSignsJButtonActionPerformed
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnLogoutActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogout;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton managePatientsJButton;
     private javax.swing.JButton manageVitalSignsJButton;
     // End of variables declaration//GEN-END:variables

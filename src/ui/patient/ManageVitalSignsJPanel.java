@@ -142,10 +142,12 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
         searchBoxJTextField = new javax.swing.JTextField();
         searchPatientJButton = new javax.swing.JButton();
         refreshPatientsJButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 255, 255));
         setMinimumSize(new java.awt.Dimension(500, 700));
         setPreferredSize(new java.awt.Dimension(500, 700));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         displayDetailsJButton.setText("Display Details");
         displayDetailsJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -153,6 +155,7 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
                 displayDetailsJButtonActionPerformed(evt);
             }
         });
+        add(displayDetailsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 130, 126, -1));
 
         editVitalSignsJButton.setText("Edit Vital Signs");
         editVitalSignsJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -160,6 +163,7 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
                 editVitalSignsJButtonActionPerformed(evt);
             }
         });
+        add(editVitalSignsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 370, -1, -1));
 
         addVitalSignsJButton.setText("Add Vital Sign");
         addVitalSignsJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -167,6 +171,7 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
                 addVitalSignsJButtonActionPerformed(evt);
             }
         });
+        add(addVitalSignsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 130, -1, -1));
 
         deleteVitalSignJButton.setText("Delete Vital Sign");
         deleteVitalSignJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -174,6 +179,7 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
                 deleteVitalSignJButtonActionPerformed(evt);
             }
         });
+        add(deleteVitalSignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 370, -1, -1));
 
         viewPatientsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -196,12 +202,15 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(viewPatientsJTable);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 406, 106));
+
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 130, 114, -1));
 
         viewVitalSignsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -228,12 +237,15 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
             viewVitalSignsJTable.getColumnModel().getColumn(1).setResizable(false);
         }
 
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 232, 406, 126));
+
         viewVitalSignJButton.setText("View Vital Signs");
         viewVitalSignJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewVitalSignJButtonActionPerformed(evt);
             }
         });
+        add(viewVitalSignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 370, 131, -1));
 
         refreshVitalSignsJButton.setText("Refresh Vital Sign");
         refreshVitalSignsJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -241,6 +253,8 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
                 refreshVitalSignsJButtonActionPerformed(evt);
             }
         });
+        add(refreshVitalSignsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 415, 131, -1));
+        add(searchBoxJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 165, 112, -1));
 
         searchPatientJButton.setText("Search Patient");
         searchPatientJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -248,6 +262,7 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
                 searchPatientJButtonActionPerformed(evt);
             }
         });
+        add(searchPatientJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 165, -1, -1));
 
         refreshPatientsJButton.setText("Refresh Patients");
         refreshPatientsJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -255,65 +270,11 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
                 refreshPatientsJButtonActionPerformed(evt);
             }
         });
+        add(refreshPatientsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 165, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(refreshVitalSignsJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(viewVitalSignJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(editVitalSignsJButton)
-                        .addGap(12, 12, 12)
-                        .addComponent(deleteVitalSignJButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(backJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(searchPatientJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(addVitalSignsJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(searchBoxJTextField))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(refreshPatientsJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(displayDetailsJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(88, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(displayDetailsJButton)
-                    .addComponent(addVitalSignsJButton)
-                    .addComponent(backJButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchPatientJButton)
-                    .addComponent(refreshPatientsJButton)
-                    .addComponent(searchBoxJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(viewVitalSignJButton)
-                    .addComponent(editVitalSignsJButton)
-                    .addComponent(deleteVitalSignJButton))
-                .addGap(22, 22, 22)
-                .addComponent(refreshVitalSignsJButton)
-                .addContainerGap(262, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/hardiksodhani/Desktop/v870-tang-36.jpg")); // NOI18N
+        jLabel2.setPreferredSize(new java.awt.Dimension(300, 300));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -780, 2380, 2530));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -530,6 +491,7 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton deleteVitalSignJButton;
     private javax.swing.JButton displayDetailsJButton;
     private javax.swing.JButton editVitalSignsJButton;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton refreshPatientsJButton;
