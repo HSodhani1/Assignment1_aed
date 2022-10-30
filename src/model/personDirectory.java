@@ -1,52 +1,41 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author hardiksodhani
+ * @author hardik sodhani
  */
-public class personDirectory {
-    private ArrayList<person> personDirectory;
-
-    public personDirectory() {
+public class PersonDirectory {
+    
+    private ArrayList<Person> personDirectory;
+    
+    public PersonDirectory() {
         personDirectory = new ArrayList<>();
     }
     
-//    public ArrayList<person> getPersonDirectory() {
-//        return personDirectory;
-//    }
-
-    public ArrayList<person> getPersonHistory() {
+    public ArrayList<Person> getPersonHistory() {
         return personDirectory;
     }
     
-    public void setPersonHistory(ArrayList<person> personHistory) {
+    public void setPersonHistory(ArrayList<Person> personHistory) {
         this.personDirectory = personHistory;
     }
     
-//    public void setPersonDirectory(ArrayList<person> personDirectory) {
-//        this.personDirectory = personDirectory;
-//    }
-        
-    public person createAndAddPerson() {
-        person person = new person();
+    public Person createAndAddPerson() {
+        Person person = new Person();
         personDirectory.add(person);
         return person;
     }
     
-    public void deletePerson(person person) {
+    public void deletePerson(Person person) {
         personDirectory.remove(person);
     }
     
-    public ArrayList<person> searchPatient(String key)
+    public ArrayList<Person> searchPatient(String key)
     {
-        ArrayList<person> searchPatientDirectory = new ArrayList();
-        for(person person: personDirectory)
+        ArrayList<Person> searchPatientDirectory = new ArrayList();
+        for(Person person: personDirectory)
         {
             if(person.getPersonName().toLowerCase().startsWith(key.toLowerCase()))
             {
@@ -59,10 +48,10 @@ public class personDirectory {
         return searchPatientDirectory;
     }
     
-    public ArrayList<person> searchPerson(String key)
+    public ArrayList<Person> searchPerson(String key)
     {
-        ArrayList<person> searchPersonDirectory = new ArrayList();
-        for(person person: personDirectory)
+        ArrayList<Person> searchPersonDirectory = new ArrayList();
+        for(Person person: personDirectory)
         {
             if(person.getPersonName().toLowerCase().startsWith(key.toLowerCase()))
             {
@@ -73,5 +62,4 @@ public class personDirectory {
     }
     
     
- 
 }

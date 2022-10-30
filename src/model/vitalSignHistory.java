@@ -1,34 +1,33 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
 import java.util.ArrayList;
-
 /**
  *
- * @author hardiksodhani
+ * @author hardik sodhani
  */
-public class vitalSignHistory {
+public class VitalSignHistory {
     
-    private ArrayList<vitalSign> history;
-
-    public ArrayList<vitalSign> getHistory() {
+    private ArrayList<VitalSign> history;
+    
+    public VitalSignHistory() {
+        history = new ArrayList<>();
+    }
+    
+    public ArrayList<VitalSign> getHistory() {
         return history;
     }
-
-    public void setHistory(ArrayList<vitalSign> history) {
+    
+    public void setHistory(ArrayList<VitalSign> history) {
         this.history = history;
     }
     
-    public vitalSign createAndAddVitalSign() {
-        vitalSign vitalSign = new vitalSign();
+    public VitalSign createAndAddVitalSign() {
+        VitalSign vitalSign = new VitalSign();
         history.add(vitalSign);
         return vitalSign;
     }
     
-    public void deleteVitalSign(vitalSign vitalSign) {
+    public void deleteVitalSign(VitalSign vitalSign) {
         history.remove(vitalSign);
     }
 }
