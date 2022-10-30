@@ -4,17 +4,106 @@
  */
 package ui.patient;
 
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.InputVerifier;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import model.Patient;
+import model.person;
+import model.personDirectory;
+import model.stringVerifier;
+import model.vitalSign;
+
 /**
  *
  * @author hardiksodhani
  */
 public class manageVitalSigns extends javax.swing.JPanel {
 
+    private personDirectory personDirectory;
+    private JPanel userProcessContainer;
     /**
      * Creates new form manageVitalSigns
      */
-    public manageVitalSigns() {
+    public manageVitalSigns(JPanel userProcessContainer, personDirectory personDirectory) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.personDirectory= personDirectory;
+        InputVerifier stringVerifier = new stringVerifier();
+        txtPatientSearch.setInputVerifier(stringVerifier);
+        ArrayList<person> personList = personDirectory.getPersonHistory();
+        populatePatientsTable(personList);
+        populateVitalSignTable(null);
+    }
+    
+    private void populatePatientsTable(ArrayList<person> personList) {
+        DefaultTableModel model = (DefaultTableModel) tblPatientInfo.getModel();
+        model.setRowCount(0);
+        if(personList.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "No Persons found. Please add Persons",
+                    "Error", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        for (person person : personList) {
+            Object[] row = new Object[3];
+            row[0] = person;
+            row[1]= person.getAge();
+            if(person.getPatient()!=null)
+            {
+                row[2] = person.getPatient().getPatientID();
+            }
+            else
+            {
+                row[2] = "Patient Not Created";
+            }
+            
+            model.addRow(row);
+        }
+    }
+    
+    private void populateVitalSignTable(person person) {
+        
+        DefaultTableModel model = (DefaultTableModel) tblViewVitalSigns.getModel();
+        model.setRowCount(0);
+        if (person != null) {
+            int patientAge = person.getAge();
+            ArrayList<vitalSign> vitalSignList = person.getPatient().getVitalSignHistory().getHistory();
+            
+            if (vitalSignList.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No vital signs found. Please"
+                        + " add vital signs", "Error", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            
+            for (vitalSign vitalSign : vitalSignList) {
+                Object[] row = new Object[2];
+                row[0] = vitalSign;
+                row[1] = vitalSignStatus(patientAge, vitalSign);
+                if(row[1].equals("Abnormal")){
+                    person.setHasVitalSigns(true);
+                }
+                else{
+                    person.setHasVitalSigns(false);
+                }
+                model.addRow(row);
+            }
+        }
+    }
+    
+    private String vitalSignStatus(int patientAge, vitalSign vitalSign) {
+        String vitalSignStatus = "Normal";
+        
+        int bloodPressure = (int) vitalSign.getBloodPressure();
+        
+        if (bloodPressure < 80 || bloodPressure > 120){
+            
+            vitalSignStatus = "Abnormal";
+        }
+
+        return vitalSignStatus;
     }
 
     /**
@@ -55,14 +144,45 @@ public class manageVitalSigns extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblPatientInfo);
 
         btnBack.setText("<<Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         btnAddVitalSigns.setText("Add Vital SIgn");
+        btnAddVitalSigns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddVitalSignsActionPerformed(evt);
+            }
+        });
 
         btnDisplayDetails.setText("Display Details");
+        btnDisplayDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDisplayDetailsActionPerformed(evt);
+            }
+        });
 
         btnSearchPatient.setText("Search Patient");
+        btnSearchPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchPatientActionPerformed(evt);
+            }
+        });
 
         btnRefreshPatient.setText("Refresh Patients");
+        btnRefreshPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshPatientActionPerformed(evt);
+            }
+        });
+
+        txtPatientSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPatientSearchActionPerformed(evt);
+            }
+        });
 
         tblViewVitalSigns.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -86,8 +206,18 @@ public class manageVitalSigns extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblViewVitalSigns);
 
         btnViewVitalSigns.setText("View Vital Signs");
+        btnViewVitalSigns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewVitalSignsActionPerformed(evt);
+            }
+        });
 
         btnEditVitalSigns.setText("Edit Vital Signs");
+        btnEditVitalSigns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditVitalSignsActionPerformed(evt);
+            }
+        });
 
         btnDeleteVitalSigns.setText("Delete Vital Signs");
         btnDeleteVitalSigns.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +227,11 @@ public class manageVitalSigns extends javax.swing.JPanel {
         });
 
         btnRefreshVitalSigns.setText("Refresh Vital Signs");
+        btnRefreshVitalSigns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshVitalSignsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -169,10 +304,139 @@ public class manageVitalSigns extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteVitalSignsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteVitalSignsActionPerformed
-        // TODO add your handling code here:
+        int selectedRow = tblPatientInfo.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row from table.");
+            return;
+        }
+        person person = (person) tblPatientInfo.getValueAt(selectedRow, 0);
+        Patient patient= person.getPatient();
+        if(patient==null)
+        {
+            JOptionPane.showMessageDialog(this, "Patient not created, Please create"
+                    + " Patient first.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        selectedRow = tblViewVitalSigns.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row from table.",
+                    "Error", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        vitalSign vitalSign = (vitalSign) tblViewVitalSigns.getValueAt(selectedRow, 0);
+        
+        int flag= JOptionPane.showConfirmDialog(this, "Are you sure want to remove?",
+                "Warning", JOptionPane.YES_NO_OPTION);
+        if(flag==0)
+        {
+            patient.getVitalSignHistory().deleteVitalSign(vitalSign);
+            refreshVialSigns();
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteVitalSignsActionPerformed
 
+    private void txtPatientSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPatientSearchActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnDisplayDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisplayDetailsActionPerformed
+                int selectedRow = tblPatientInfo.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row from table.",
+                    "Error", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        person person = (person) tblPatientInfo.getValueAt(selectedRow, 0);
+        Patient patient= person.getPatient();
+        if(patient!=null)
+        {
+            populateVitalSignTable(person);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Patient not created, Please create "
+                    + "Patient first.", "Error", JOptionPane.ERROR_MESSAGE);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDisplayDetailsActionPerformed
+
+    private void btnAddVitalSignsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVitalSignsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddVitalSignsActionPerformed
+
+    private void btnSearchPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchPatientActionPerformed
+        String key = txtPatientSearch.getText().trim();
+        if(key.length()==0)
+        {
+            JOptionPane.showMessageDialog(this, "Please enter key.","Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        /*Storing searched patients in an array to display in table.*/
+        ArrayList<person> searchPatients = personDirectory.searchPatient(key);
+        populatePatientsTable(searchPatients);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSearchPatientActionPerformed
+
+    private void btnRefreshPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshPatientActionPerformed
+        txtPatientSearch.setText("");
+        populatePatientsTable(personDirectory.getPersonHistory());        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRefreshPatientActionPerformed
+
+    private void btnViewVitalSignsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewVitalSignsActionPerformed
+        int selectedRow = tblViewVitalSigns.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row from table.",
+                    "Error", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        vitalSign vitalSign = (vitalSign) tblViewVitalSigns.getValueAt(selectedRow, 0);
+        viewUpdateVitalSigns vuvsJPanel = new viewUpdateVitalSigns(userProcessContainer, vitalSign, Boolean.FALSE);
+        userProcessContainer.add("vuvsJPanel", vuvsJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewVitalSignsActionPerformed
+
+    private void btnEditVitalSignsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditVitalSignsActionPerformed
+        int selectedRow = tblViewVitalSigns.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row from table.",
+                    "Error", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        vitalSign vitalSign = (vitalSign) tblViewVitalSigns.getValueAt(selectedRow, 0);
+        
+        viewUpdateVitalSigns vuvsJPanel = new viewUpdateVitalSigns(userProcessContainer,
+                vitalSign, Boolean.TRUE);
+        userProcessContainer.add("vuvsJPanel", vuvsJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditVitalSignsActionPerformed
+
+    private void btnRefreshVitalSignsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshVitalSignsActionPerformed
+                // TODO add your handling code here:
+    }//GEN-LAST:event_btnRefreshVitalSignsActionPerformed
+    
+    private void refreshVialSigns() {
+        int selectedRow = tblPatientInfo.getSelectedRow();
+        if (selectedRow < 0) {
+            populateVitalSignTable(null);
+        } else {
+            person person = (person) tblPatientInfo.getValueAt(selectedRow, 0);
+            Patient patient= person.getPatient();
+            if(patient!=null)
+            {
+                populateVitalSignTable(person);
+            }
+            else
+            {
+                populateVitalSignTable(null);
+            }
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddVitalSigns;
     private javax.swing.JButton btnBack;

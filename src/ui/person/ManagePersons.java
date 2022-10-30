@@ -4,6 +4,10 @@
  */
 package ui.person;
 
+import javax.swing.JPanel;
+import model.personDirectory;
+
+
 /**
  *
  * @author hardiksodhani
@@ -13,7 +17,9 @@ public class ManagePersons extends javax.swing.JPanel {
     /**
      * Creates new form CreatePersonPanel
      */
-    public ManagePersons() {
+    private personDirectory personDirectory;
+    private JPanel userProcessContainer;
+    public ManagePersons( JPanel  userProcessContainer, personDirectory personDirectory) {
         initComponents();
     }
 
@@ -26,22 +32,25 @@ public class ManagePersons extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        label2 = new java.awt.Label();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblPersonDirectory = new javax.swing.JTable();
-        btnBack = new javax.swing.JButton();
-        btnCreatePerson = new javax.swing.JButton();
-        btnView = new javax.swing.JButton();
-        btnEdit = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
-        btnSearch = new javax.swing.JButton();
-        btnRefresh = new javax.swing.JButton();
-        txtSearchPerson = new javax.swing.JTextField();
+        mpJPanel = new javax.swing.JPanel();
+        btnRefresh1 = new javax.swing.JButton();
+        txtSearchPerson1 = new javax.swing.JTextField();
+        label3 = new java.awt.Label();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblPersonDirectory1 = new javax.swing.JTable();
+        btnBack1 = new javax.swing.JButton();
+        btnCreatePerson1 = new javax.swing.JButton();
+        btnView1 = new javax.swing.JButton();
+        btnEdit1 = new javax.swing.JButton();
+        btnDelete1 = new javax.swing.JButton();
+        btnSearch1 = new javax.swing.JButton();
 
-        label2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        label2.setText("Person Directory");
+        btnRefresh1.setText("Refresh");
 
-        tblPersonDirectory.setModel(new javax.swing.table.DefaultTableModel(
+        label3.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        label3.setText("Person Directory");
+
+        tblPersonDirectory1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -52,90 +61,106 @@ public class ManagePersons extends javax.swing.JPanel {
                 "Person Name", "Age", "Patient ID"
             }
         ));
-        jScrollPane1.setViewportView(tblPersonDirectory);
+        jScrollPane2.setViewportView(tblPersonDirectory1);
 
-        btnBack.setText("<<Back");
+        btnBack1.setText("<<Back");
 
-        btnCreatePerson.setText("Create Person");
+        btnCreatePerson1.setText("Create Person");
 
-        btnView.setText("View Person");
+        btnView1.setText("View Person");
 
-        btnEdit.setText("Edit Person");
+        btnEdit1.setText("Edit Person");
 
-        btnDelete.setText("Delete Person");
+        btnDelete1.setText("Delete Person");
 
-        btnSearch.setText("Search Person");
+        btnSearch1.setText("Search Person");
 
-        btnRefresh.setText("Refresh");
+        javax.swing.GroupLayout mpJPanelLayout = new javax.swing.GroupLayout(mpJPanel);
+        mpJPanel.setLayout(mpJPanelLayout);
+        mpJPanelLayout.setHorizontalGroup(
+            mpJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mpJPanelLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 986, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(mpJPanelLayout.createSequentialGroup()
+                .addGap(403, 403, 403)
+                .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(mpJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mpJPanelLayout.createSequentialGroup()
+                    .addGap(175, 175, 175)
+                    .addComponent(btnSearch1)
+                    .addGap(50, 50, 50)
+                    .addComponent(txtSearchPerson1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
+                    .addComponent(btnRefresh1)
+                    .addGap(157, 157, 157))
+                .addGroup(mpJPanelLayout.createSequentialGroup()
+                    .addGap(33, 33, 33)
+                    .addComponent(btnBack1)
+                    .addGap(30, 30, 30)
+                    .addComponent(btnCreatePerson1)
+                    .addGap(30, 30, 30)
+                    .addComponent(btnView1)
+                    .addGap(30, 30, 30)
+                    .addComponent(btnEdit1)
+                    .addGap(30, 30, 30)
+                    .addComponent(btnDelete1)
+                    .addGap(345, 345, 345)))
+        );
+        mpJPanelLayout.setVerticalGroup(
+            mpJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mpJPanelLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(182, Short.MAX_VALUE))
+            .addGroup(mpJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mpJPanelLayout.createSequentialGroup()
+                    .addGap(281, 281, 281)
+                    .addGroup(mpJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnBack1)
+                        .addComponent(btnCreatePerson1)
+                        .addComponent(btnView1)
+                        .addComponent(btnEdit1)
+                        .addComponent(btnDelete1))
+                    .addGap(35, 35, 35)
+                    .addGroup(mpJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnSearch1)
+                        .addComponent(btnRefresh1)
+                        .addComponent(txtSearchPerson1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(78, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(308, 308, 308))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(btnBack)
-                .addGap(30, 30, 30)
-                .addComponent(btnCreatePerson)
-                .addGap(30, 30, 30)
-                .addComponent(btnView)
-                .addGap(30, 30, 30)
-                .addComponent(btnEdit)
-                .addGap(30, 30, 30)
-                .addComponent(btnDelete)
-                .addGap(61, 61, 61))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(171, 171, 171)
-                .addComponent(btnSearch)
-                .addGap(50, 50, 50)
-                .addComponent(txtSearchPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(btnRefresh)
-                .addGap(163, 163, 163))
+            .addComponent(mpJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(btnCreatePerson)
-                    .addComponent(btnView)
-                    .addComponent(btnEdit)
-                    .addComponent(btnDelete))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSearch)
-                    .addComponent(btnRefresh)
-                    .addComponent(txtSearchPerson, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addComponent(mpJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 18, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnCreatePerson;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btnRefresh;
-    private javax.swing.JButton btnSearch;
-    private javax.swing.JButton btnView;
-    private javax.swing.JScrollPane jScrollPane1;
-    private java.awt.Label label2;
-    private javax.swing.JTable tblPersonDirectory;
-    private javax.swing.JTextField txtSearchPerson;
+    private javax.swing.JButton btnBack1;
+    private javax.swing.JButton btnCreatePerson1;
+    private javax.swing.JButton btnDelete1;
+    private javax.swing.JButton btnEdit1;
+    private javax.swing.JButton btnRefresh1;
+    private javax.swing.JButton btnSearch1;
+    private javax.swing.JButton btnView1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private java.awt.Label label3;
+    private javax.swing.JPanel mpJPanel;
+    private javax.swing.JTable tblPersonDirectory1;
+    private javax.swing.JTextField txtSearchPerson1;
     // End of variables declaration//GEN-END:variables
 }

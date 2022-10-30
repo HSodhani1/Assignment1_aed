@@ -4,6 +4,9 @@
  */
 package ui.patient;
 
+import javax.swing.JPanel;
+import model.personDirectory;
+
 /**
  *
  * @author hardiksodhani
@@ -13,7 +16,9 @@ public class managePatients extends javax.swing.JPanel {
     /**
      * Creates new form managePatients
      */
-    public managePatients() {
+    private JPanel userProcessContainer;
+    private personDirectory personDirectory;
+    public managePatients(JPanel userProcessContainer, personDirectory personDirectory) {
         initComponents();
     }
 
@@ -36,13 +41,13 @@ public class managePatients extends javax.swing.JPanel {
 
         tblManagePatients.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Patient Name", "Age", "Patient ID", "Community"
+                "Patient Name", "Age", "Patient ID", "Community", "Hospital"
             }
         ));
         jScrollPane1.setViewportView(tblManagePatients);

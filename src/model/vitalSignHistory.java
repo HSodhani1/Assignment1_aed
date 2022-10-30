@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * @author hardiksodhani
  */
 public class vitalSignHistory {
+    
     private ArrayList<vitalSign> history;
 
     public ArrayList<vitalSign> getHistory() {
@@ -19,5 +20,15 @@ public class vitalSignHistory {
 
     public void setHistory(ArrayList<vitalSign> history) {
         this.history = history;
+    }
+    
+    public vitalSign createAndAddVitalSign() {
+        vitalSign vitalSign = new vitalSign();
+        history.add(vitalSign);
+        return vitalSign;
+    }
+    
+    public void deleteVitalSign(vitalSign vitalSign) {
+        history.remove(vitalSign);
     }
 }

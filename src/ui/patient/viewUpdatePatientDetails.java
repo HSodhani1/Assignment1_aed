@@ -4,17 +4,54 @@
  */
 package ui.patient;
 
+import java.awt.CardLayout;
+import javax.swing.InputVerifier;
+import javax.swing.JPanel;
+import model.Patient;
+import model.stringVerifier;
+
 /**
  *
  * @author hardiksodhani
  */
 public class viewUpdatePatientDetails extends javax.swing.JPanel {
 
+    private Patient patient;
+    private JPanel userProcessContainer;
+    private Boolean isEdit = Boolean.FALSE;
     /**
+     * 
      * Creates new form viewUpdatePatientDetails
      */
-    public viewUpdatePatientDetails() {
+    public viewUpdatePatientDetails(JPanel upc, Patient patient, Boolean isEdit) {
         initComponents();
+        this.userProcessContainer = upc;
+        this.patient = patient;
+        this.isEdit = isEdit;
+        addVerifiers();
+        populatePatientDetails();
+        modifyTextFields(this.isEdit);
+    }
+    
+    private void addVerifiers() {
+        InputVerifier stringVerifier = new stringVerifier();
+        txtPatientID.setInputVerifier(stringVerifier);
+        txtDoctorName.setInputVerifier(stringVerifier);
+    }
+    
+    private void populatePatientDetails() {
+        txtPatientID.setText(patient.getPatientID());
+        txtDoctorName.setText(patient.getPrimaryDoctorName());
+    }
+    
+    private void modifyTextFields(Boolean isEdit) {
+        if (isEdit) {
+            txtPatientID.setEnabled(true);
+            txtDoctorName.setEnabled(true);
+        } else {
+            txtPatientID.setEnabled(false);
+            txtDoctorName.setEnabled(false);
+        }
     }
 
     /**
@@ -29,8 +66,8 @@ public class viewUpdatePatientDetails extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         patientIDJLabel = new javax.swing.JLabel();
         primaryDocNameJLabel = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtPatientID = new javax.swing.JTextField();
+        txtDoctorName = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
         btnPatientEdit = new javax.swing.JButton();
         btnPatientSave = new javax.swing.JButton();
@@ -44,6 +81,11 @@ public class viewUpdatePatientDetails extends javax.swing.JPanel {
         primaryDocNameJLabel.setText("Primary Doctor Name:");
 
         btnBack.setText("<<Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         btnPatientEdit.setText("Edit");
 
@@ -71,12 +113,12 @@ public class viewUpdatePatientDetails extends javax.swing.JPanel {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(primaryDocNameJLabel)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtDoctorName, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(67, 67, 67)
                                     .addComponent(patientIDJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(32, 32, 32)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(txtPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -87,11 +129,11 @@ public class viewUpdatePatientDetails extends javax.swing.JPanel {
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(patientIDJLabel)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(primaryDocNameJLabel)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDoctorName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
@@ -101,15 +143,21 @@ public class viewUpdatePatientDetails extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnPatientEdit;
     private javax.swing.JButton btnPatientSave;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel patientIDJLabel;
     private javax.swing.JLabel primaryDocNameJLabel;
+    private javax.swing.JTextField txtDoctorName;
+    private javax.swing.JTextField txtPatientID;
     // End of variables declaration//GEN-END:variables
 }

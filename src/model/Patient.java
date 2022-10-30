@@ -13,8 +13,21 @@ import java.util.Scanner;
 public class Patient {
     private String patientID;
     private String primaryDoctorName;
-    private String prefferedPharmacy;
+    private vitalSignHistory vitalSignHistory;
 
+    
+    public Patient() {
+        this.vitalSignHistory = new vitalSignHistory();
+    }
+    
+    public vitalSignHistory getVitalSignHistory() {
+        return vitalSignHistory;
+    }
+    
+    public void setVitalSignHistory(vitalSignHistory vitalSignHistory) {
+        this.vitalSignHistory = vitalSignHistory;
+    }
+    
     public String getPatientID() {
         return patientID;
     }
@@ -31,12 +44,5 @@ public class Patient {
         this.primaryDoctorName = primaryDoctorName;
     }
 
-    public String getPrefferedPharmacy() {
-        return prefferedPharmacy;
-    }
-
-    public void setPrefferedPharmacy(String prefferedPharmacy) {
-        this.prefferedPharmacy = prefferedPharmacy;
-    }
-
+    
 }

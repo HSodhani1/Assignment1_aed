@@ -13,13 +13,65 @@ import java.util.ArrayList;
 public class personDirectory {
     private ArrayList<person> personDirectory;
 
-    public ArrayList<person> getPersonDirectory() {
+    public personDirectory() {
+        personDirectory = new ArrayList<>();
+    }
+    
+//    public ArrayList<person> getPersonDirectory() {
+//        return personDirectory;
+//    }
+
+    public ArrayList<person> getPersonHistory() {
         return personDirectory;
     }
-
-    public void setPersonDirectory(ArrayList<person> personDirectory) {
-        this.personDirectory = personDirectory;
+    
+    public void setPersonHistory(ArrayList<person> personHistory) {
+        this.personDirectory = personHistory;
     }
+    
+//    public void setPersonDirectory(ArrayList<person> personDirectory) {
+//        this.personDirectory = personDirectory;
+//    }
+        
+    public person createAndAddPerson() {
+        person person = new person();
+        personDirectory.add(person);
+        return person;
+    }
+    
+    public void deletePerson(person person) {
+        personDirectory.remove(person);
+    }
+    
+    public ArrayList<person> searchPatient(String key)
+    {
+        ArrayList<person> searchPatientDirectory = new ArrayList();
+        for(person person: personDirectory)
+        {
+            if(person.getPersonName().toLowerCase().startsWith(key.toLowerCase()))
+            {
+                if(person.getPatient()!=null)
+                {
+                    searchPatientDirectory.add(person);
+                }
+            }
+        }
+        return searchPatientDirectory;
+    }
+    
+    public ArrayList<person> searchPerson(String key)
+    {
+        ArrayList<person> searchPersonDirectory = new ArrayList();
+        for(person person: personDirectory)
+        {
+            if(person.getPersonName().toLowerCase().startsWith(key.toLowerCase()))
+            {
+                searchPersonDirectory.add(person);
+            }
+        }
+        return searchPersonDirectory;
+    }
+    
     
  
 }

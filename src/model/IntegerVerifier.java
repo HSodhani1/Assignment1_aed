@@ -14,7 +14,7 @@ import javax.swing.JTextField;
  *
  * @author hardiksodhani
  */
-public class IntergerVerfier extends InputVerifier {
+public class IntegerVerifier extends InputVerifier {
     @Override
     public boolean verify(JComponent input) {
         String text = ((JTextField) input).getText();

@@ -4,17 +4,104 @@
  */
 package ui.patient;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import model.person;
+import model.personDirectory;
+
 /**
  *
  * @author hardiksodhani
  */
 public class vitalSignReport extends javax.swing.JPanel {
-
+    
+    private personDirectory personDirectory;
+    private JPanel userProcessContainer;
+    public vitalSignReport(){
+        
+    }
     /**
      * Creates new form vitalSignReport
      */
-    public vitalSignReport() {
+    public vitalSignReport(JPanel userProcessContainer, personDirectory personDirectory) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.personDirectory = personDirectory;
+        System.out.println(personDirectory.getPersonHistory().size());
+        int len = personDirectory.getPersonHistory().size();
+        ArrayList<person> reportList = new ArrayList<>();
+        int countA =0, totalA =0;
+        int countB =0, totalB =0;
+        int countC =0, totalC =0;
+        int countD =0, totalD =0;
+        reportList = personDirectory.getPersonHistory();
+        for (int i =0; i<len; i++){
+            if(reportList.get(i).getCommunity().equals("Roxbury")){
+                totalA++;
+                if(reportList.get(i).isHasVitalSigns()){
+                    countA++;
+                }
+                
+            }
+            
+            else if(reportList.get(i).getCommunity().equals("Fenway")){
+                totalB++;
+                if(reportList.get(i).isHasVitalSigns()){
+                    countB++;
+                }
+                
+            }
+            else if(reportList.get(i).getCommunity().equals("Downtown")){
+                totalC++;
+                if(reportList.get(i).isHasVitalSigns()){
+                    countC++;
+                }
+                
+            }
+            else if(reportList.get(i).getCommunity().equals("Kenmore")){
+                totalD++;
+                if(reportList.get(i).isHasVitalSigns()){
+                    countD++;
+                }
+                
+            }
+        }
+        DefaultTableModel model = (DefaultTableModel) tblVitalSignsDashboard.getModel();
+        model.setRowCount(0);
+        if(reportList.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "No Persons found. Please add Persons",
+                    "Error", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+       
+            Object[] row = new Object[4];
+            row[0] = "Roxbury";
+            row[1]= ""+totalA;
+            row[2]= ""+countA;
+           // row[3] = (countA/totalA)*100;
+            model.addRow(row);
+            row[0] = "Fenway";
+            row[1]= ""+totalB;
+            row[2]= ""+countB;
+           // row[3] = (countB/totalB)*100;
+            model.addRow(row);
+            row[0] = "Downtown";
+            row[1]= ""+totalC;
+            row[2]= ""+countC;
+           // row[3] = (countC/totalC)*100;
+            model.addRow(row);
+            row[0] = "Kenmore";
+            row[1]= ""+totalD;
+            row[2]= ""+countD;
+           // row[3] = (countD/totalD)*100;
+            model.addRow(row);
+        
+        
+        //System.out.println("total number of patients is "+count);
+    
     }
 
     /**
@@ -29,6 +116,7 @@ public class vitalSignReport extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVitalSignsDashboard = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
 
         tblVitalSignsDashboard.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -47,18 +135,27 @@ public class vitalSignReport extends javax.swing.JPanel {
         jLabel1.setText("Vital Signs Dashboard");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        btnLogout.setText("Logout");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(272, 272, 272)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(309, 309, 309)
+                                .addComponent(btnLogout)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(272, 272, 272)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -67,12 +164,15 @@ public class vitalSignReport extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnLogout)
+                .addContainerGap(107, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblVitalSignsDashboard;

@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.Date;
+
 /**
  *
  * @author hardiksodhani
@@ -24,6 +26,45 @@ public class vitalSign {
     private String Diagonosis;
     private int docId;
     private String docName;
+    private int RespiratoryRate;
+    private int HeartRate;
+    private int Weight;
+    private Date timestamp;
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
+    
+    
+    
+    
+    public int getRespiratoryRate() {
+        return RespiratoryRate;
+    }
+
+    public void setRespiratoryRate(int RespiratoryRate) {
+        this.RespiratoryRate = RespiratoryRate;
+    }
+
+    public int getHeartRate() {
+        return HeartRate;
+    }
+
+    public void setHeartRate(int HeartRate) {
+        this.HeartRate = HeartRate;
+    }
+
+    public int getWeight() {
+        return Weight;
+    }
+
+    public void setWeight(int Weight) {
+        this.Weight = Weight;
+    }
 
     public double getTemperature() {
         return temperature;

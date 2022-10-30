@@ -5,6 +5,7 @@
 package model;
 
 import java.awt.Color;
+import javax.swing.InputVerifier;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -13,7 +14,8 @@ import javax.swing.JTextField;
  *
  * @author hardiksodhani
  */
-public class stringVerifier {
+public class stringVerifier extends InputVerifier {
+    @Override
     public boolean verify(JComponent input) {
         String text = ((JTextField) input).getText();
         String pattern = "^[a-zA-Z0-9 ]*$";

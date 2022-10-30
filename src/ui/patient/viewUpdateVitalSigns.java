@@ -4,17 +4,63 @@
  */
 package ui.patient;
 
+import java.awt.CardLayout;
+import java.util.Date;
+import javax.swing.InputVerifier;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import model.IntegerVerifier;
+import model.vitalSign;
+
 /**
  *
  * @author hardiksodhani
  */
 public class viewUpdateVitalSigns extends javax.swing.JPanel {
 
+    private vitalSign vitalSign;
+    private JPanel userProcessContainer;
+    private Boolean isEdit = Boolean.FALSE;
     /**
      * Creates new form viewUpdateVitalSigns
      */
-    public viewUpdateVitalSigns() {
+    public viewUpdateVitalSigns(JPanel upc, vitalSign vitalSign, Boolean isEdit) {
         initComponents();
+        this.userProcessContainer = upc;
+        this.vitalSign = vitalSign;
+        this.isEdit = isEdit;
+        addVerifiers();
+        populateVitalSignDetails();
+        modifyTextFields(this.isEdit);
+    }
+    
+    private void addVerifiers() {
+            InputVerifier integerVerifier = new IntegerVerifier() ;
+            txtBloodPressure.setInputVerifier(integerVerifier);
+            txtHeartRate.setInputVerifier(integerVerifier);
+            txtWeight.setInputVerifier(integerVerifier);
+            txtRespiratoryRate.setInputVerifier(integerVerifier);
+    }
+    private void modifyTextFields(Boolean isEdit) {
+        if (isEdit) {
+            txtRespiratoryRate.setEnabled(true);
+            txtHeartRate.setEnabled(true);
+            txtBloodPressure.setEnabled(true);
+            txtWeight.setEnabled(true);
+        } else {
+            txtRespiratoryRate.setEnabled(false);
+            txtHeartRate.setEnabled(false);
+            txtBloodPressure.setEnabled(false);
+            txtWeight.setEnabled(false);
+        }
+    }
+        
+    
+    private void populateVitalSignDetails() {
+        txtRespiratoryRate.setText(String.valueOf(vitalSign.getRespiratoryRate()));
+        txtHeartRate.setText(String.valueOf(vitalSign.getHeartRate()));
+        txtBloodPressure.setText(String.valueOf(vitalSign.getBloodPressure()));
+        txtWeight.setText(String.valueOf(vitalSign.getWeight()));
     }
 
     /**
@@ -32,7 +78,7 @@ public class viewUpdateVitalSigns extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        btnRespiratoryRate = new javax.swing.JTextField();
+        txtRespiratoryRate = new javax.swing.JTextField();
         txtHeartRate = new javax.swing.JTextField();
         txtBloodPressure = new javax.swing.JTextField();
         txtWeight = new javax.swing.JTextField();
@@ -55,10 +101,25 @@ public class viewUpdateVitalSigns extends javax.swing.JPanel {
         jLabel5.setText("Vital Sign");
 
         btnBackVital.setText("<<Back");
+        btnBackVital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackVitalActionPerformed(evt);
+            }
+        });
 
         btnEditVital.setText("Edit");
+        btnEditVital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditVitalActionPerformed(evt);
+            }
+        });
 
         btnSaveVital.setText("Save");
+        btnSaveVital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveVitalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -84,7 +145,7 @@ public class viewUpdateVitalSigns extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txtBloodPressure)
                                     .addComponent(txtHeartRate, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnRespiratoryRate, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtRespiratoryRate, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtWeight, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnBackVital)
@@ -105,7 +166,7 @@ public class viewUpdateVitalSigns extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(btnRespiratoryRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRespiratoryRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -144,11 +205,41 @@ public class viewUpdateVitalSigns extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackVitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackVitalActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackVitalActionPerformed
+
+    private void btnEditVitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditVitalActionPerformed
+        modifyTextFields(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditVitalActionPerformed
+
+    private void btnSaveVitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveVitalActionPerformed
+        try {
+            int respiratoryRate = Integer.parseInt(txtRespiratoryRate.getText());
+            int heartRate = Integer.parseInt(txtHeartRate.getText());
+            int bloodPressure = Integer.parseInt(txtBloodPressure.getText());
+            int weight = Integer.parseInt(txtWeight.getText());
+            vitalSign.setRespiratoryRate(respiratoryRate);
+            vitalSign.setHeartRate(heartRate);
+            vitalSign.setBloodPressure(bloodPressure);
+            vitalSign.setWeight(weight);
+            /*Set current date and time as TimeStamp*/
+            vitalSign.setTimestamp(new Date());
+            JOptionPane.showMessageDialog(this, "Vital signs updated!!", "Update", 
+                    JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Please enter correct values", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        modifyTextFields(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaveVitalActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackVital;
     private javax.swing.JButton btnEditVital;
-    private javax.swing.JTextField btnRespiratoryRate;
     private javax.swing.JButton btnSaveVital;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -158,6 +249,7 @@ public class viewUpdateVitalSigns extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtBloodPressure;
     private javax.swing.JTextField txtHeartRate;
+    private javax.swing.JTextField txtRespiratoryRate;
     private javax.swing.JTextField txtWeight;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,17 +4,25 @@
  */
 package ui.patient;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import model.personDirectory;
+
 /**
  *
  * @author hardiksodhani
  */
 public class patientManagerWorkArea extends javax.swing.JPanel {
-
+        
+    private JPanel userProcessContainer;
+    private personDirectory personDirectory;
     /**
      * Creates new form patientManagerWorkArea
      */
-    public patientManagerWorkArea() {
+    public patientManagerWorkArea(JPanel userProcessContainer, personDirectory personDirectory) {
         initComponents();
+        this.personDirectory= personDirectory;
+        this.userProcessContainer=userProcessContainer;
     }
 
     /**
@@ -31,6 +39,11 @@ public class patientManagerWorkArea extends javax.swing.JPanel {
         btnLogout = new javax.swing.JButton();
 
         btnPatientDirectory.setText("Patient Directory");
+        btnPatientDirectory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPatientDirectoryActionPerformed(evt);
+            }
+        });
 
         btnEncounterHistory.setText("Encounter History");
         btnEncounterHistory.addActionListener(new java.awt.event.ActionListener() {
@@ -40,6 +53,11 @@ public class patientManagerWorkArea extends javax.swing.JPanel {
         });
 
         btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -51,24 +69,40 @@ public class patientManagerWorkArea extends javax.swing.JPanel {
                     .addComponent(btnLogout)
                     .addComponent(btnPatientDirectory)
                     .addComponent(btnEncounterHistory))
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addContainerGap(224, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(94, 94, 94)
+                .addGap(134, 134, 134)
                 .addComponent(btnPatientDirectory)
                 .addGap(18, 18, 18)
                 .addComponent(btnEncounterHistory)
                 .addGap(18, 18, 18)
                 .addComponent(btnLogout)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEncounterHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncounterHistoryActionPerformed
-        // TODO add your handling code here:
+        manageVitalSigns mvsJPanel= new manageVitalSigns(userProcessContainer, personDirectory);
+        userProcessContainer.add("mvsJPanel", mvsJPanel);
+        CardLayout layout=(CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);        // TODO add your handling code here:
     }//GEN-LAST:event_btnEncounterHistoryActionPerformed
+
+    private void btnPatientDirectoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientDirectoryActionPerformed
+        managePatients mpJPanel= new managePatients(userProcessContainer, personDirectory);
+        userProcessContainer.add("mpJPanel", mpJPanel);
+        CardLayout layout=(CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPatientDirectoryActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,11 +4,22 @@
  */
 package ui;
 
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import model.personDirectory;
+import ui.patient.managePatients;
+import ui.patient.manageVitalSigns;
+import ui.patient.patientManagerWorkArea;
+import ui.patient.vitalSignReport;
+import ui.person.ManagePersons;
+
 /**
  *
  * @author hardiksodhani
  */
 public class mainFrame extends javax.swing.JFrame {
+
+    private personDirectory personDirectory;
 
     /**
      * Creates new form mainFrame
@@ -27,69 +38,37 @@ public class mainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jSplitPane1 = new javax.swing.JSplitPane();
+        userProcessContainer = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        btnPatientDirectory = new javax.swing.JButton();
-        btnDashboard = new javax.swing.JButton();
-        btnPersontDirectory = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
         comboDropbox = new javax.swing.JComboBox<>();
+        btnLogin = new javax.swing.JButton();
         label1 = new java.awt.Label();
         lblUsername = new javax.swing.JLabel();
-        lblPassword = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
-        btnLogin = new javax.swing.JButton();
+        lblPassword = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        jPanel2 = new javax.swing.JPanel();
+        btnPatientDirectory = new javax.swing.JButton();
+        btnPersonDirectory = new javax.swing.JButton();
+        btnDashboard = new javax.swing.JButton();
+        btnEncounterDetails = new javax.swing.JButton();
+        btnPatientDetails = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnPatientDirectory.setText("Patient Directory");
-        btnPatientDirectory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPatientDirectoryActionPerformed(evt);
-            }
-        });
-
-        btnDashboard.setText("Dashboard");
-        btnDashboard.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDashboardActionPerformed(evt);
-            }
-        });
-
-        btnPersontDirectory.setText("Person Directory");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPatientDirectory, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnPersontDirectory, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnDashboard)
-                        .addGap(16, 16, 16)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(btnPersontDirectory)
-                .addGap(18, 18, 18)
-                .addComponent(btnPatientDirectory)
-                .addGap(18, 18, 18)
-                .addComponent(btnDashboard)
-                .addContainerGap(264, Short.MAX_VALUE))
-        );
-
-        jSplitPane1.setLeftComponent(jPanel1);
+        userProcessContainer.setLayout(new java.awt.CardLayout());
 
         comboDropbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "System Admin", "Hospital Admin", "Community Admin", "Doctor Login", "Patient " }));
         comboDropbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboDropboxActionPerformed(evt);
+            }
+        });
+
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
             }
         });
 
@@ -100,7 +79,99 @@ public class mainFrame extends javax.swing.JFrame {
 
         lblPassword.setText("Password:");
 
-        btnLogin.setText("Login");
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblPassword)
+                                    .addComponent(lblUsername))
+                                .addGap(41, 41, 41)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPassword)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboDropbox, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(629, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addComponent(comboDropbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        userProcessContainer.add(jPanel1, "card5");
+
+        jSplitPane1.setRightComponent(userProcessContainer);
+
+        btnPatientDirectory.setText("Patient Directory");
+        btnPatientDirectory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPatientDirectoryActionPerformed(evt);
+            }
+        });
+
+        btnPersonDirectory.setText("Person Directory");
+        btnPersonDirectory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPersonDirectoryActionPerformed(evt);
+            }
+        });
+
+        btnDashboard.setText("Dashboard");
+        btnDashboard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDashboardActionPerformed(evt);
+            }
+        });
+
+        btnEncounterDetails.setText("Encounter Details");
+        btnEncounterDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncounterDetailsActionPerformed(evt);
+            }
+        });
+
+        btnPatientDetails.setText("Patient Details");
+        btnPatientDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPatientDetailsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -108,53 +179,39 @@ public class mainFrame extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(385, 385, 385)
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUsername)
-                            .addComponent(lblPassword))
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPassword)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnLogin)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(comboDropbox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtUsername)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(360, Short.MAX_VALUE))
+                    .addComponent(btnDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPersonDirectory, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPatientDirectory, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(btnEncounterDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnPatientDetails, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(comboDropbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUsername)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(133, 133, 133)
+                .addComponent(btnPatientDirectory)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnPersonDirectory)
                 .addGap(18, 18, 18)
-                .addComponent(btnLogin)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addComponent(btnDashboard)
+                .addGap(18, 18, 18)
+                .addComponent(btnEncounterDetails)
+                .addGap(18, 18, 18)
+                .addComponent(btnPatientDetails)
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setRightComponent(jPanel2);
+        jSplitPane1.setLeftComponent(jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSplitPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,15 +223,137 @@ public class mainFrame extends javax.swing.JFrame {
 
     private void comboDropboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDropboxActionPerformed
         // TODO add your handling code here:
+        btnPatientDirectory.setVisible(false);
+        btnDashboard.setVisible(false);
+        btnPersonDirectory.setVisible(false);
+        //jLabel1.setVisible(false);
+        btnEncounterDetails.setVisible(false);
+        btnPatientDetails.setVisible(false);
+        btnLogin.setEnabled(true);
+        
+        
+        if (comboDropbox.getSelectedItem().toString() == "Person Login") {
+            txtPassword.setEnabled(false);
+            txtUsername.setEnabled(false);
+            
+            
+        } 
+         else {
+            txtPassword.setEnabled(true);
+            txtUsername.setEnabled(true);
+            
+        }
     }//GEN-LAST:event_comboDropboxActionPerformed
 
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
-        // TODO add your handling code here:
+        vitalSignReport report = new vitalSignReport(userProcessContainer, personDirectory);
+        userProcessContainer.add("report",report);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);        // TODO add your handling code here:
     }//GEN-LAST:event_btnDashboardActionPerformed
 
     private void btnPatientDirectoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientDirectoryActionPerformed
-        // TODO add your handling code here:
+        patientManagerWorkArea pmwaJPanel=
+                new patientManagerWorkArea(userProcessContainer, personDirectory);
+        userProcessContainer.add("pmwaJPanel", pmwaJPanel);
+        CardLayout layout=(CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);        // TODO add your handling code here:
     }//GEN-LAST:event_btnPatientDirectoryActionPerformed
+
+    private void btnPersonDirectoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonDirectoryActionPerformed
+        ManagePersons mpJPanel = new ManagePersons(userProcessContainer, personDirectory);
+        userProcessContainer.add("mpJPanel", mpJPanel);
+        CardLayout layout=(CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPersonDirectoryActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        btnPatientDirectory.setVisible(false);
+        btnPersonDirectory.setVisible(false);
+        btnDashboard.setVisible(false);
+        btnEncounterDetails.setVisible(false);
+        btnPatientDetails.setVisible(false);
+
+        
+        btnLogin.setEnabled(true);
+        /*managePersonsJButton.setVisible(true);
+        jLabel1.setVisible(true);
+        patientManagerJButton.setVisible(true);
+        vitalSignReportJButton.setVisible(true);*/
+            if (comboDropbox.getSelectedItem().toString() == "Person Login") {
+                txtPassword.setEnabled(false);
+                txtUsername.setEnabled(false);
+                btnPersonDirectory.setVisible(true); 
+            }
+            
+                        
+            
+            
+            
+            if (comboDropbox.getSelectedItem().toString() == "System Admin") {
+            if (txtUsername.getText().matches("admin") && txtPassword.getText().matches("123")) {
+                JOptionPane.showMessageDialog(this, "System Admin Login Successfull");
+                btnPersonDirectory.setVisible(true);
+                btnPatientDirectory.setVisible(true);
+                btnDashboard.setVisible(true);
+                btnEncounterDetails.setVisible(true);
+                btnPatientDetails.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Incorrect credential");
+            }
+            
+            }
+            
+            
+            if (comboDropbox.getSelectedItem().toString() == "Hospital Admin") {
+            if (txtUsername.getText().matches("hospadmin") && txtPassword.getText().matches("123")) {
+                JOptionPane.showMessageDialog(this, "Hospital Admin Login Successfull");
+                btnPersonDirectory.setVisible(true);
+                btnPatientDirectory.setVisible(true);
+                btnDashboard.setVisible(false);
+                btnEncounterDetails.setVisible(true);
+                btnPatientDetails.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Incorrect credential");
+            }
+            }
+             
+            
+            
+            
+            if (comboDropbox.getSelectedItem().toString() == "Community Admin"){
+             if (txtUsername.getText().matches("communityadmin") && txtPassword.getText().matches("123")) {
+                 JOptionPane.showMessageDialog(this, "Community Admin login successfull");
+                //managePersonsJButton.setVisible(false);
+                btnDashboard.setVisible(true);
+                btnPatientDirectory.setEnabled(false);
+        
+                
+                 
+             }  
+             else {
+                JOptionPane.showMessageDialog(this, "Incorrect credential");
+            }
+            }// TODO add your handling code here:
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnEncounterDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncounterDetailsActionPerformed
+        manageVitalSigns mvsJPanel=new manageVitalSigns(userProcessContainer, personDirectory);
+        userProcessContainer.add("mvsJPanel", mvsJPanel);
+        CardLayout layout=(CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEncounterDetailsActionPerformed
+
+    private void btnPatientDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientDetailsActionPerformed
+        managePatients mpJPanel=new managePatients(userProcessContainer, personDirectory);
+        userProcessContainer.add("mpJPanel", mpJPanel);
+        CardLayout layout=(CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPatientDetailsActionPerformed
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,6 +384,7 @@ public class mainFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new mainFrame().setVisible(true);
             }
@@ -213,9 +393,11 @@ public class mainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDashboard;
+    private javax.swing.JButton btnEncounterDetails;
     private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnPatientDetails;
     private javax.swing.JButton btnPatientDirectory;
-    private javax.swing.JButton btnPersontDirectory;
+    private javax.swing.JButton btnPersonDirectory;
     private javax.swing.JComboBox<String> comboDropbox;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -223,7 +405,8 @@ public class mainFrame extends javax.swing.JFrame {
     private java.awt.Label label1;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUsername;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
+    private javax.swing.JPanel userProcessContainer;
     // End of variables declaration//GEN-END:variables
 }

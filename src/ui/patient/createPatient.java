@@ -4,17 +4,31 @@
  */
 package ui.patient;
 
+import java.awt.CardLayout;
+import javax.swing.InputVerifier;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import model.Patient;
+import model.person;
+import model.stringVerifier;
+
 /**
  *
  * @author hardiksodhani
  */
 public class createPatient extends javax.swing.JPanel {
 
+    private person person;
+    private JPanel userProcessContainer;
+    private JPanel upc;
     /**
      * Creates new form createPatient
      */
     public createPatient() {
         initComponents();
+        this.userProcessContainer = upc;
+        this.person=person;
+        addVerifiers();
     }
 
     /**
@@ -49,8 +63,18 @@ public class createPatient extends javax.swing.JPanel {
         });
 
         btnBack.setText("<<Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         btnAddPatient.setText("Add Patient");
+        btnAddPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddPatientActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -103,6 +127,32 @@ public class createPatient extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrimaryDoctorNameActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPatientActionPerformed
+        if (checkBlankInput())
+        {
+            Patient patient = new Patient();
+            patient.setPatientID(txtPatientID.getText());
+            patient.setPrimaryDoctorName(txtPrimaryDoctorName.getText());
+            //Adding Patient to Person
+            person.setPatient(patient);
+            JOptionPane.showMessageDialog(this, "Patient added!!", "Update", 
+                    JOptionPane.INFORMATION_MESSAGE);
+            clearFields();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Please enter all values",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddPatientActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddPatient;
@@ -113,4 +163,26 @@ public class createPatient extends javax.swing.JPanel {
     private javax.swing.JTextField txtPatientID;
     private javax.swing.JTextField txtPrimaryDoctorName;
     // End of variables declaration//GEN-END:variables
+
+    private void clearFields() {
+        txtPatientID.setText("");
+        txtPrimaryDoctorName.setText("");
+        }
+
+    private boolean checkBlankInput() {
+        if(txtPatientID.getText().length()==0
+                ||txtPrimaryDoctorName.getText().length()==0)
+        {
+            return false;
+        }
+        else{
+            return true;
+        }    
+    }
+
+    private void addVerifiers() {
+        InputVerifier stringVerifier = new stringVerifier();
+        txtPatientID.setInputVerifier(stringVerifier);
+        txtPrimaryDoctorName.setInputVerifier(stringVerifier);
+    }
 }
