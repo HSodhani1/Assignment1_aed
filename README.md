@@ -21,4 +21,4 @@ Netbeans, java developer kit
 
 
 ## NUID : 002770306
-![image](https://user-images.githubusercontent.com/114604702/198923585-b5731041-e63d-4183-80cc-7bdb025b6e65.png)
+
